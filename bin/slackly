@@ -1,0 +1,68 @@
+#!/usr/bin/env ruby
+require 'optparse'
+
+options = {
+  config: './slackly.json'
+}
+
+option_parser = OptionParser.new do |opts|
+  executable_name = File.basename($PROGRAM_NAME)
+  opts.banner = "Usage: #{executable_name} message 'text' [options]
+Options:
+"
+  opts.on('-c CONFIG',
+          '--config path_to/config.json',
+          'alernate JSON configuration file, defaults to ./slackly.json') do |config|
+    options[:config] = config
+  end
+
+  opts.on('-v',
+          '--version',
+          'Display Slackly version') do
+    ARGV[0] = 'version'
+  end
+end
+
+begin
+  option_parser.parse!
+  if ARGV.empty?
+    STDERR.puts 'Error: you must supply an action'
+    STDERR.puts option_parser.help
+    exit 1
+  end
+
+  case ARGV[0]
+  when 'message'
+    require_relative '../lib/slackly'
+
+    if ARGV[1].nil?
+      STDERR.puts 'Error: you must supply a message'
+      STDERR.puts option_parser.help
+      exit 1
+    end
+
+    if !File.exist?(options[:config]) || !File.readable?(options[:config])
+      STDERR.puts 'Error: ensure you supply a valid and readable JSON config file'
+      STDERR.puts option_parser.help
+      exit 1
+    end
+
+    begin
+      slackly_config = JSON.parse(File.read(options[:config]), symbolize_names: true)
+    rescue JSON::ParserError
+      STDERR.puts 'Error: file \"#{options[:config]}\" is not a valid JSON file'
+      STDERR.puts option_parser.help
+      exit 1
+    end
+
+    s = Slackly.new(slackly_config[:webhook_url])
+    s.message(slackly_config.merge(text: ARGV[1]))
+  when 'version'
+    puts "Slackly version is #{Gem::Specification.load("#{File.dirname(__FILE__)}/../slackly.gemspec").version}"
+  else
+    STDERR.puts option_parser
+  end
+rescue OptionParser::InvalidArgument => ex
+  STDERR.puts ex.message
+  STDERR.puts option_parser
+end

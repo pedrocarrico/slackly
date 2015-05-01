@@ -1,0 +1,11 @@
+AbcSize:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+LineLength:
+  Max: 120
+
+SpaceAfterControlKeyword:
+  Enabled: true
