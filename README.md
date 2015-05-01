@@ -1,8 +1,9 @@
 # Slackly
 
 ## Description
-Slackly is a simple and easy way to send messages to your Slack channels using the incoming webhooks integration.
-You can use it directly in your code or through the command line.
+Slackly is a simple and easy way to send messages to your Slack channels using the
+[incoming webhooks](https://api.slack.com/incoming-webhooks) integration. You can use it directly in your code or
+through the command line.
 
 ## Installation
 ```
