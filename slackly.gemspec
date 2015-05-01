@@ -18,5 +18,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'json', '~> 1.8', '>= 1.8.2'
 
   s.add_development_dependency 'bundler', '~> 1.8', '>= 1.8.2'
-  s.add_development_dependency 'rubocop', '~> 0.30.1', '0.30.1'
+  s.add_development_dependency 'rubocop', '~> 0.30.1', '>= 0.30.1'
 end
