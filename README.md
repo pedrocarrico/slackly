@@ -12,19 +12,19 @@ gem install slackly
 
 ## Usage
 In your code:
-```
+```ruby
 s = Slackly.new(webhook_url)
 s.message(text: 'Hello from Slackly')
 ```
 
 Command line:
-```
+```bash
 slackly message 'Hello from Slackly!'
 ```
 
 ## Configuration
 In your code:
-```
+```ruby
 # these options will be the default client options and may be overriden by the message options
 client_options = {
   username: 'slackly',
@@ -44,7 +44,7 @@ The command line needs a JSON configuration file in order to configure the webho
 but you can override it with the `-c` option.
 The JSON configuration file must must have a `webhook_url` option in order for the command line to work:
 
-```
+```bash
 slackly message 'Hello from Slackly!' -c path_to/config.json
 ```
 
