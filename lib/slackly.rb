@@ -31,7 +31,7 @@ class Slackly
   def message(message_options = {})
     message!(message_options)
   rescue => exception
-    STDERR.puts "Error while sending message to Slack: #{exception.message}"
+    warn "Error while sending message to Slack: #{exception.message}"
   end
 
   private
