@@ -18,7 +18,7 @@ class Slackly
     @client_options = DEFAULT_OPTIONS.merge(client_options)
   end
 
-  def message(message_options = {})
+  def message!(message_options = {})
     fail Slackly::InvalidMessageTextError, 'Please supply a valid message text' if message_options[:text].nil?
 
     request = Net::HTTP::Post.new(webhook_uri.request_uri)
@@ -26,6 +26,10 @@ class Slackly
     Net::HTTP.start(webhook_uri.host, webhook_uri.port, use_ssl: webhook_uses_ssl?) do |http|
       http.request(request)
     end
+  end
+
+  def message(message_options = {})
+    message!(message_options)
   rescue => exception
     STDERR.puts "Error while sending message to Slack: #{exception.message}"
   end
