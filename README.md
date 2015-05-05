@@ -1,5 +1,5 @@
 # Slackly
-[![Build Status](https://secure.travis-ci.org/pedrocarrico/slackly.png)](http://travis-ci.org/pedrocarrico/slackly) [![Dependency Status](https://gemnasium.com/pedrocarrico/slackly.png?travis)](https://gemnasium.com/pedrocarrico/slackly) [![Gem Version](https://badge.fury.io/rb/slackly.png)](http://badge.fury.io/rb/slackly) [![Code Climate](https://codeclimate.com/github/pedrocarrico/slackly/badges/gpa.svg)](https://codeclimate.com/github/pedrocarrico/slackly)
+[![Build Status](https://secure.travis-ci.org/pedrocarrico/slackly.png)](http://travis-ci.org/pedrocarrico/slackly) [![Dependency Status](https://gemnasium.com/pedrocarrico/slackly.png?travis)](https://gemnasium.com/pedrocarrico/slackly) [![Gem Version](https://badge.fury.io/rb/slackly.png)](http://badge.fury.io/rb/slackly) [![Code Climate](https://codeclimate.com/github/pedrocarrico/slackly/badges/gpa.svg)](https://codeclimate.com/github/pedrocarrico/slackly) [![Coverage Status](https://coveralls.io/repos/pedrocarrico/slackly/badge.svg)](https://coveralls.io/r/pedrocarrico/slackly)
 
 ## Description
 Slackly is a simple and easy way to send messages to your Slack channels using the
